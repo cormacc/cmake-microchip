@@ -30,6 +30,7 @@ endif()
 
 set(CMAKE_FIND_ROOT_PATH ${MICROCHIP_XC16_PATH})
 
+message(STATUS "Identified XC16 installation at: '${CMAKE_FIND_ROOT_PATH}' ...")
 
 
 # Unfortunately the normal CMake compiler detection process doesn't work
@@ -62,9 +63,11 @@ set(CMAKE_FIND_ROOT_PATH ${MICROCHIP_XC16_PATH})
 # version numbers. We still allow CMake's feature detection and test
 # routines to run as they still find some useful information.
 
-
-find_program(CMAKE_C_COMPILER "xc16-gcc")
-
+#message(STATUS "... CMAKE_FIND_ROOT_PATH_MODE_PROGRAM: ${CMAKE_FIND_ROOT_PATH_MODE_PROGRAM}")
+#set(CMAKE_FIND_ROOT_PATH_MODE_PROGRAM ONLY)
+#find_program(CMAKE_C_COMPILER "xc16-gcc")
+set(CMAKE_C_COMPILER "${CMAKE_FIND_ROOT_PATH}/bin/xc16-gcc")
+message(STATUS "... using ${CMAKE_C_COMPILER}")
 
 # bypass CMake compiler detection
 set(CMAKE_C_COMPILER_ID_RUN 1)
