@@ -64,9 +64,11 @@ message(STATUS "Identified XC16 installation at: '${CMAKE_FIND_ROOT_PATH}' ...")
 # routines to run as they still find some useful information.
 
 #message(STATUS "... CMAKE_FIND_ROOT_PATH_MODE_PROGRAM: ${CMAKE_FIND_ROOT_PATH_MODE_PROGRAM}")
-#set(CMAKE_FIND_ROOT_PATH_MODE_PROGRAM ONLY)
-#find_program(CMAKE_C_COMPILER "xc16-gcc")
-set(CMAKE_C_COMPILER "${CMAKE_FIND_ROOT_PATH}/bin/xc16-gcc")
+set(CMAKE_FIND_ROOT_PATH_MODE_PROGRAM ONLY)
+find_program(CMAKE_C_COMPILER "xc16-gcc")
+find_program(CMAKE_ASM_COMPILER "xc16-gcc")
+
+#set(CMAKE_C_COMPILER "${CMAKE_FIND_ROOT_PATH}/bin/xc16-gcc")
 message(STATUS "... using ${CMAKE_C_COMPILER}")
 
 # bypass CMake compiler detection
